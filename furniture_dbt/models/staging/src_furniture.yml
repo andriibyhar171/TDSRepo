@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw_furniture
+    schema: raw
+    tables:
+      - name: categories
+      - name: customers
+      - name: products
+      - name: orders
+      - name: reviews

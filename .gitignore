@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .env
 data_lake/
+furniture_dbt/target/
+furniture_dbt/dbt_packages/
+furniture_dbt/logs/
