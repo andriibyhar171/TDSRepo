@@ -38,3 +38,13 @@
 2. **Marts (Вітрини даних):** 
    - `dim_customers`, `dim_products` (виміри).
    - `fct_orders` (таблиця фактів із розрахунком `total_amount = quantity * price`).
+
+## Лабораторна робота №3: Оркестрація та Data Quality (Apache Airflow)
+Для автоматизації конвеєра даних (Data Pipeline) розгорнуто локальне середовище Apache Airflow та створено направлений ациклічний граф (DAG) `furniture_elt_pipeline`, який об'єднує всі попередні етапи в єдиний процес.
+
+**Структура автоматизованого ELT-конвеєра:**
+1. `extract_and_load_raw_data` (**PythonOperator**): Видобуток транзакційних даних меблевого інтернет-магазину та їх завантаження у `raw` шар DWH.
+2. `dbt_run_transformations` (**BashOperator**): Трансформація "сирих" даних та побудова аналітичної схеми "Зірка" (шари `staging` та `marts`).
+3. `dbt_test_data_quality` (**BashOperator**): Запуск перевірок якості даних (Data Quality Gates). Налаштовано тести на унікальність (`unique`) та відсутність порожніх значень (`not_null`) для ключових полів.
+
+**Розклад виконання (Schedule):** Щоденно (`@daily`).
