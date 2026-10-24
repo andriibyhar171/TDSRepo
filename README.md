@@ -26,3 +26,15 @@
    ```bash
    git clone <посилання_на_ваш_репозиторій>
    cd modern-data-stack-furniture
+
+## Лабораторна робота №2: Analytics Engineering (dbt)
+Трансформація даних реалізована за допомогою dbt (Data Build Tool) на базі методології розмірнісного моделювання (схема "Зірка").
+
+**Структура шарів:**
+1. **Staging (Очищення):** 
+   - `stg_customers`: видалення дублікатів та заповнення порожніх email.
+   - `stg_products`: перевірка та очищення від'ємних цін.
+   - `stg_orders`, `stg_categories`, `stg_reviews`: кастинг типів даних.
+2. **Marts (Вітрини даних):** 
+   - `dim_customers`, `dim_products` (виміри).
+   - `fct_orders` (таблиця фактів із розрахунком `total_amount = quantity * price`).
