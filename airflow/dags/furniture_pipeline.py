@@ -8,7 +8,7 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'scripts')))
 from data_generator import load_data_to_dwh
 
-PROJECT_ROOT = "/mnt/d/Files/NULP/TDS/3/modern-data-stack-furniture"
+PROJECT_ROOT = "/mnt/d/Files/NULP/TDS/4/modern-data-stack-furniture"
 DBT_PROJECT_DIR = os.path.join(PROJECT_ROOT, "furniture_dbt")
 DBT_PROFILES_DIR = os.path.join(PROJECT_ROOT, "furniture_dbt")
 

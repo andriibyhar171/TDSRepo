@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Таблиця фактів, що містить історію всіх замовлень меблів із прив'язкою до клієнтів і товарів та розрахованою загальною сумою."
+    columns:
+      - name: order_id
+        description: "Унікальний ідентифікатор замовлення"
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Зовнішній ключ до виміру клієнтів (dim_customers)"
+        tests:
+          - not_null
+      - name: product_id
+        description: "Зовнішній ключ до виміру товарів (dim_products)"
+        tests:
+          - not_null
+      - name: total_amount
+        description: "Загальна вартість замовлення (quantity * unit_price)"
+
+  - name: dim_customers
+    description: "Таблиця виміру клієнтів магазину меблів (очищена від дублікатів та порожніх email)."
+    columns:
+      - name: customer_id
+        description: "Унікальний ідентифікатор клієнта"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_products
+    description: "Таблиця виміру меблевих товарів з об'єднаними назвами категорій."
+    columns:
+      - name: product_id
+        description: "Унікальний ідентифікатор товару"
+        tests:
+          - unique
+          - not_null
