@@ -10,3 +10,7 @@ airflow/airflow.cfg
 airflow/airflow.db
 airflow/logs/
 airflow/webserver_config.py
+# dbt artifacts
+furniture_dbt/target/
+furniture_dbt/logs/
+furniture_dbt/dbt_packages/
